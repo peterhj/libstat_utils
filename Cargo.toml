@@ -1,0 +1,8 @@
+[package]
+name = "stat_utils"
+version = "0.0.1"
+authors = ["Peter Jin <peterhaijin@gmail.com>"]
+
+[lib]
+name = "stat_utils"
+path = "src/lib.rs"
