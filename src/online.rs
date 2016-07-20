@@ -69,12 +69,13 @@ impl OnlineAutocorr1 {
     if self.counter > 0 {
       let prev_lag0_mean = self.lag0_est.get_mean();
       self.lag0_est.update(x);
-      let lag0_mean = self.lag0_est.get_mean();
+      //let lag0_mean = self.lag0_est.get_mean();
       let prev_lag1_mean = self.lag1_est.get_mean();
       self.lag1_est.update(self.lag1_val);
-      let lag1_mean = self.lag1_est.get_mean();
+      //let lag1_mean = self.lag1_est.get_mean();
       let n = self.lag1_est.counter as f64;
-      self.corr1s += (x - lag0_mean) * (self.lag1_val - lag1_mean) + (n - 1.0) / (n * n) * (x - prev_lag0_mean) * (self.lag1_val - prev_lag1_mean);
+      //self.corr1s += (x - lag0_mean) * (self.lag1_val - lag1_mean) + (n - 1.0) / (n * n) * (x - prev_lag0_mean) * (self.lag1_val - prev_lag1_mean);
+      self.corr1s += ((n - 1.0) / n) * (x - prev_lag0_mean) * (self.lag1_val - prev_lag1_mean);
     }
     self.counter += 1;
     self.lag1_val = x;
